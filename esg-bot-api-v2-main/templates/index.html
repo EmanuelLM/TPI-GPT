@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESG-bot</title>
+    <style>
+        form {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='Logo_UdeM-RVB.png') }}" alt="Logo" style="float: left; max-width: 250px; max-height: 250px;">   
+    <h2>ESG-bot</h2>
+    <p>This is form that sends requests to our API for the ESG-bot v 2.0. <br> You can paste any text you want to query about a ESG-related question.<br> In the future, the input could be a url pointing to a pdf file:</p>
+    <form method="POST">
+        <label for="words">Number of words in the answer, typically between 100 and 300 words:</label>
+        <input type="text" id="words" name="words">
+        <label for="text">Text to be queried (you can copy-paste up to two pages from a word document):</label>
+        <input type="text" id="text" name="text">
+        <label for="question">Question you want to ask the document (e.g. one of the questions from the Transition Pathway Initiative):</label>
+        <input type="text" id="question" name="question">
+        <input type="submit" value="Submit">
+    </form>
+    {% if output %}
+    <h3>Output:</h3>
+    <div style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #f9f9f9;">
+        {{ output|safe }}
+    </div>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API</title>
+</head>
+<body>
+    <h2>Enter input data:</h2>
+    <form method="POST">
+        <label for="words">Number of words in the answer:</label>
+        <input type="text" id="words" name="words"><br><br>
+        <label for="text">Text to be queried:</label>
+        <input type="text" id="text" name="text"><br><br>
+        <label for="question">Question you want to ask the document:</label>
+        <input type="text" id="question" name="question"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if output %}
+        <h3>Output:</h3>
+        <p>{{ output }}</p>
+    {% endif %}
+</body>
+</html>
